@@ -43,6 +43,7 @@ export function BlockData({ block }: Props): JSX.Element {
       <DataItem label="Gas limit" value={hexToDecimal(blockData.gasLimit).toString()} />
       <DataItem label="Difficulty" value={hexToDecimal(blockData.difficulty).toString()} />
       <DataItem label="Total difficulty" value={hexToDecimal(blockData.totalDifficulty).toString()} />
+      <DataItem label="Size" value={hexToDecimal(blockData.size).toString()} />
     </div>
   )
 }

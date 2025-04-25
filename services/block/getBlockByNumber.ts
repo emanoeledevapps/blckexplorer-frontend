@@ -6,8 +6,8 @@ export async function getBlockByNumber(blockNumberHex: string) {
     },
     body: JSON.stringify({
       jsonrpc: "2.0",
-      method: "eth_getHeaderByNumber",
-      params: [blockNumberHex],
+      method: "eth_getBlockByNumber",
+      params: [blockNumberHex, false],
       id: 0
     })
   })

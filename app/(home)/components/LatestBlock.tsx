@@ -54,6 +54,12 @@ export function LatestBlock(): JSX.Element {
           </p>
         </div>
         <div className="flex items-center gap-3">
+          <p className="text-gray-500">Txs:</p>
+          <p className="text-sm truncate text-ellipsis">
+            {blockData && blockData?.result?.transactions?.length}
+          </p>
+        </div>
+        <div className="flex items-center gap-3">
           <p className="text-gray-500 text-sm">
             {timestamp !== 0 && differenceInSeconds(new Date(), new Date(timestamp * 1000))} sec ago
           </p>

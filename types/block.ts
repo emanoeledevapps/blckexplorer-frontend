@@ -16,4 +16,7 @@ export interface BlockProps {
   timestamp: string
   totalDifficulty: string
   transactionsRoot: string
+  size: string
+  transactions: []
+  uncles: []
 }
