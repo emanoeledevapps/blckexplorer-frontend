@@ -1,11 +1,12 @@
+/* eslint-disable react-hooks/rules-of-hooks */
 "use client"
 
+import { useTimeSince } from "@/hooks/useTimeSince"
 import { getBlockByNumber } from "@/services/block/getBlockByNumber"
 import { BlockProps } from "@/types/block"
 import { decimalToHex } from "@/utils/decimalToHex"
 import { hexToDecimal } from "@/utils/hexToDecimal"
 import { useQuery } from "@tanstack/react-query"
-import { format } from "date-fns"
 import { JSX } from "react"
 
 interface Props {
@@ -30,12 +31,19 @@ export function BlockData({ block }: Props): JSX.Element {
     return <p>Error on get data</p>
   }
 
+  let timestamp = 0
+
+  if (blockData) {
+    timestamp = hexToDecimal(blockData?.timestamp)
+  }
+  const { formatted } = useTimeSince(new Date(timestamp * 1000))
+
   return (
     <div className="flex flex-col gap-3 mt-10">
       <DataItem label="Hash" value={blockData.hash} />
       <DataItem 
         label="Date" 
-        value={format(new Date(hexToDecimal(blockData.timestamp) * 1000), 'yyyy/MM/dd - kk:mm:ss')}
+        value={formatted}
       />
       <DataItem label="Miner" value={blockData.miner} />
       <DataItem label="Parent hash" value={blockData.parentHash} />
