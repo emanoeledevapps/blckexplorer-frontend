@@ -9,7 +9,7 @@ export function Screen({ children }: Props): JSX.Element {
 		<div className="w-screen h-screen flex flex-col">
 			<Header />
 
-			<main className="container mx-auto px-5 mt-10">
+			<main className="container mx-auto px-5 mt-10 pb-20">
 				{children}
 			</main>
 		</div>

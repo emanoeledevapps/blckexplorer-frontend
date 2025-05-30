@@ -25,7 +25,7 @@ export function DataItem({
         <p className="text-gray-500">{label}:</p>
         <div className="flex gap-1 items-center">
           <IconAddress address={value as string} size={25}/>
-          <Link href={`/address/${value}`} className="underline text-blue-500">
+          <Link href={`/address/${value}`} className="underline text-blue-500 truncate text-ellipsis max-w-[60%]">
             {value}
           </Link>
         </div>
@@ -48,7 +48,7 @@ export function DataItem({
     return (
       <Container>
         <p className="text-gray-500">{label}:</p>
-        <Link href={`/tx/${value}`} className="underline text-blue-500">
+        <Link href={`/tx/${value}`} className="underline text-blue-500 truncate text-ellipsis max-w-[60%]">
           {value}
         </Link>
       </Container>
@@ -70,5 +70,5 @@ interface ContainerProps {
   children: ReactNode;
 }
 function Container({ children }: ContainerProps): JSX.Element {
-  return <div className="flex gap-2 max-w-[1024px]">{children}</div>;
+  return <div className="flex gap-2 max-w-[320px] lg:max-w-[1024px] overflow-hidden">{children}</div>;
 }

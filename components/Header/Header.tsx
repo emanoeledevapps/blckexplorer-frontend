@@ -6,7 +6,7 @@ export function Header(): JSX.Element {
 	const LogoUrl = process.env.NEXT_PUBLIC_LOGO_HEADER_URL ? process.env.NEXT_PUBLIC_LOGO_HEADER_URL : ''
 
 	return (
-		<header className="w-full h-20 border-b">
+		<header className="w-full py-3 border-b">
 			<div className="container mx-auto h-full px-5 flex items-center justify-between">
 				<Link href="/" className="flex items-center gap-3">
 					<Image

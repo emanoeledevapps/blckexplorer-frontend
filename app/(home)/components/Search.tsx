@@ -23,10 +23,10 @@ export function Search() {
     <div className="flex flex-col items-center mt-10 mb-20">
       <form className="flex flex-col" onSubmit={handleSearch}>
         <label htmlFor="tx">Search for a transaction/address/block</label>
-        <div className="flex gap-3">
+        <div className="flex gap-3 w-full">
           <input 
             id="tx"
-            className="w-[1024px] h-14 rounded-full px-3 border border-gray-500"
+            className="w-full lg:w-[1024px] h-14 rounded-full px-3 border border-gray-500"
             placeholder="Type here"
             value={input}
             onChange={(e) => setInput(e.target.value)}

@@ -8,7 +8,7 @@ export default async function Tx({ params }: { params: { tx: string } }): Promis
 
   return (
     <Screen>
-      <h2 className="font-bold text-xl">
+      <h2 className="font-bold lg:text-xl break-all">
         Transaction {tx}
       </h2>
 

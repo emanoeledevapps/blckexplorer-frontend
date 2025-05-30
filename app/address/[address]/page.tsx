@@ -8,9 +8,9 @@ export default function Address({ params }: { params: { address: string } }) {
   return (
     <Screen>
       <h2 className="font-bold text-2xl">Address</h2>
-      <div className="flex items-center gap-5 mt-5">
+      <div className="flex flex-col lg:flex-row lg:items-center gap-5 mt-5">
         <IconAddress address={address} size={70} />
-        <p className="text-black text-2xl">{address}</p>
+        <p className="text-black text-sm lg:text-2xl">{address}</p>
       </div>
       <AddressData address={address} />
     </Screen>
