@@ -7,6 +7,7 @@ import { useQuery } from "@tanstack/react-query";
 import { StatusTx } from "@/components/StatusTx/StatusTx";
 import { getDebugTraceTx } from "@/services/tx/getDebugTraceTx";
 import { ethers } from "ethers";
+import { DataItem } from "@/components/DataItem/DataItem";
 
 interface Props {
   tx: string;
@@ -71,17 +72,4 @@ function ResponseError({ tx }: ResponseErrorProps): JSX.Element {
   }
 
   return <div />;
-}
-
-interface DataItemProps {
-  label: string;
-  value: string;
-}
-function DataItem({ label, value }: DataItemProps): JSX.Element {
-  return (
-    <div className="flex items-center gap-2">
-      <p className="text-gray-500">{label}:</p>
-      <p className="max-w-[1024px]">{value}</p>
-    </div>
-  );
 }

@@ -1,4 +1,5 @@
 "use client";
+import { DataItem } from "@/components/DataItem/DataItem";
 import { getTransactionData } from "@/services/tx/getTransactionData";
 import { TxProps } from "@/types/tx";
 import { hexToDecimal } from "@/utils/hexToDecimal";
@@ -34,9 +35,10 @@ export function TransactionData({ tx }: Props): JSX.Element {
       <DataItem
         label="Block"
         value={hexToDecimal(txData.blockNumber).toString()}
+        linkToBlock
       />
-      <DataItem label="From" value={txData.from} />
-      <DataItem label="To" value={txData.to} />
+      <DataItem label="From" value={txData.from} linkToAddress />
+      <DataItem label="To" value={txData.to} linkToAddress />
       <DataItem label="Value" value={hexToDecimal(txData.value).toString()} />
       <DataItem label="Gas" value={hexToDecimal(txData.gas).toString()} />
       <DataItem
@@ -45,18 +47,5 @@ export function TransactionData({ tx }: Props): JSX.Element {
       />
       <DataItem label="Input" value={txData.input} />
     </section>
-  );
-}
-
-interface DataItemProps {
-  label: string;
-  value: string;
-}
-function DataItem({ label, value }: DataItemProps): JSX.Element {
-  return (
-    <div className="flex gap-2">
-      <p className="text-gray-500">{label}:</p>
-      <p className="max-w-[1024px] break-all">{value}</p>
-    </div>
   );
 }
