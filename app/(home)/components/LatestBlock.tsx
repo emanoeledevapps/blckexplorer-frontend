@@ -7,6 +7,7 @@ import { hexToDecimal } from "@/utils/hexToDecimal";
 import { getBlockByNumber } from "@/services/block/getBlockByNumber";
 import Link from "next/link";
 import { useTimeSince } from "@/hooks/useTimeSince";
+import { IconAddress } from "@/components/IconAddress/IconAddress";
 
 const refetchInterval = process.env.NEXT_PUBLIC_REFETCH_INTERVAL ? parseInt(process.env.NEXT_PUBLIC_REFETCH_INTERVAL) : 30000
 
@@ -49,11 +50,16 @@ export function LatestBlock(): JSX.Element {
         href={`/block/${latestBlock}`}
       >
         <p className="font-bold text-2xl">{latestBlock}</p>
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-2">
           <p className="text-gray-500">Miner:</p>
-          <p className="text-sm truncate text-ellipsis">
-            {blockData && blockData?.result?.miner}
-          </p>
+          {blockData && (
+            <>
+              <IconAddress address={blockData?.result?.miner} size={20}/>
+              <p className="text-sm truncate text-ellipsis max-w-[50%]">
+                {blockData?.result?.miner}
+              </p>
+            </>
+          )}
         </div>
         <div className="flex items-center gap-3">
           <p className="text-gray-500">Txs:</p>

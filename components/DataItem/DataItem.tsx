@@ -1,5 +1,6 @@
-import Link from "next/link";
 import { JSX, ReactNode } from "react";
+import Link from "next/link";
+import { IconAddress } from "../IconAddress/IconAddress";
 
 interface Props {
   label: string;
@@ -22,9 +23,12 @@ export function DataItem({
     return (
       <Container>
         <p className="text-gray-500">{label}:</p>
-        <Link href={`/address/${value}`} className="underline text-blue-500">
-          {value}
-        </Link>
+        <div className="flex gap-1 items-center">
+          <IconAddress address={value as string} size={25}/>
+          <Link href={`/address/${value}`} className="underline text-blue-500">
+            {value}
+          </Link>
+        </div>
       </Container>
     );
   }
