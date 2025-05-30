@@ -10,7 +10,7 @@ export default function Home() {
     <Screen>
       <Search />
 
-      <div className="flex flex-wrap w-full gap-10">
+      <div className="flex flex-wrap lg:flex-nowrap w-full gap-10">
         <LatestBlock />
         <TxsInTheLatestBlock />
         <NetworkData />
