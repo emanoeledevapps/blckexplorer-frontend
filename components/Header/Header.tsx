@@ -1,6 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { JSX } from "react";
+import { TestnetTag } from "../TestnetTag/TestnetTag";
 
 export function Header(): JSX.Element {
 	const LogoUrl = process.env.NEXT_PUBLIC_LOGO_HEADER_URL ? process.env.NEXT_PUBLIC_LOGO_HEADER_URL : ''
@@ -17,6 +18,12 @@ export function Header(): JSX.Element {
 					/>
 					<h1 className="font-bold text-xl">{process.env.NEXT_PUBLIC_EXPLORER_TITLE}</h1>
 				</Link>
+
+				<div className="flex">
+					{process.env.NEXT_PUBLIC_TESTNET === 'true' && (
+						<TestnetTag />
+					)}
+				</div>
 			</div>
 		</header>
   )	
