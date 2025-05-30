@@ -2,8 +2,8 @@ import { Screen } from "@/components/Screen/Screen";
 import { AddressData } from "./components/AddressData";
 import { IconAddress } from "@/components/IconAddress/IconAddress";
 
-export default function Address({ params }: { params: { address: string } }) {
-  const { address } = params;
+export default async function Address({ params }: { params: Promise<{ address: string }> }) {
+  const { address } = await params;
 
   return (
     <Screen>

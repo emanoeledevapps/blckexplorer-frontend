@@ -2,7 +2,7 @@ import { Screen } from "@/components/Screen/Screen";
 import { JSX } from "react";
 import { BlockData } from "./components/BlockData";
 
-export default async function Block({ params }: { params: { block: string } }): Promise<JSX.Element> {
+export default async function Block({ params }: { params: Promise<{ block: string }> }): Promise<JSX.Element> {
   const { block } = await params
 
   return (

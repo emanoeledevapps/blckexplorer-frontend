@@ -4,7 +4,7 @@ import { TransactionData } from "./components/TransactionData";
 import { TransactionReceipt } from "./components/TransactionReceipt";
 import { TestnetTag } from "@/components/TestnetTag/TestnetTag";
 
-export default async function Tx({ params }: { params: { tx: string } }): Promise<JSX.Element> {
+export default async function Tx({ params }: { params: Promise<{ tx: string }> }): Promise<JSX.Element> {
   const { tx } = await params
 
   return (
