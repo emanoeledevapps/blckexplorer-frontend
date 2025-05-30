@@ -1,28 +1,35 @@
 "use client"
 
+import { detectInputType } from "@/utils/detectInputType";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 export function Search() {
   const router = useRouter();
-  const [inputTx, setInputTx] = useState('');
+  const [input, setInput] = useState('');
 
   function handleSearch(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-    router.push(`/tx/${inputTx}`)
+
+    const type = detectInputType(input)
+
+    if (type === 'unknown') alert('Unknown value')
+    if (type === 'tx') router.push(`/tx/${input}`)
+    if (type === 'address') router.push(`/address/${input}`)
+    if (type === 'blockNumber') router.push(`/block/${input}`)
   }
 
   return (
     <div className="flex flex-col items-center mt-10 mb-20">
       <form className="flex flex-col" onSubmit={handleSearch}>
-        <label htmlFor="tx">Search for a transaction</label>
+        <label htmlFor="tx">Search for a transaction/address/block</label>
         <div className="flex gap-3">
           <input 
             id="tx"
             className="w-[1024px] h-14 rounded-full px-3 border border-gray-500"
             placeholder="Type here"
-            value={inputTx}
-            onChange={(e) => setInputTx(e.target.value)}
+            value={input}
+            onChange={(e) => setInput(e.target.value)}
             required
           />
           <button
